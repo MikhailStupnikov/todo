@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ToDo List</title>
+	<!-- bower:css-->
+	<link rel="stylesheet" href="bower/normalize-css/normalize.css" />
+	<!-- endbower-->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="todo-list">
+		<form class="task-entry clearfix" id="form-entry">
+			<input id="task-text" type="text" name="tasktext" placeholder="Введите задачу">
+			<input type="submit" value="+">
+		</form>
+		<form class="task-view">
+			<ul class="task-view-current" id="task-list"></ul>
+		</form>
+		<div class="task-setting">
+			<button class="task-setting-btn" id="btn-done">Сделано</button>
+		</div>
+	</div>
+	<script src="js/main.js"></script>
+</body>
+
+</html>

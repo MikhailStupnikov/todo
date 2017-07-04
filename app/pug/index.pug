@@ -1,0 +1,25 @@
+doctype html
+html
+	head
+		meta(charset='UTF-8')
+		meta(http-equiv='X-UA-Compatible' content='IE=edge')
+		meta(name='viewport' content='width=device-width, initial-scale=1')
+		title ToDo List
+		// bower:css
+		// endbower
+		link(rel='stylesheet' href='css/style.css')
+	body
+		
+		.todo-list
+
+			form#form-entry.task-entry.clearfix
+				input#task-text(type='text' name='tasktext' placeholder='Введите задачу')
+				input(type='submit' value='+')
+		
+			form.task-view
+				ul#task-list.task-view-current
+
+			.task-setting
+				button#btn-done.task-setting-btn Сделано
+	
+		script(src='js/main.js')
