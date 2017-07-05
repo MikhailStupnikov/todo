@@ -2,6 +2,11 @@ var gulp = require('gulp'),
 	wiredep = require('wiredep').stream,
 	pug = require('gulp-pug'),
 	prettify = require('gulp-html-prettify'),
+	del = require('del'),
+	useref = require('gulp-useref'),
+	gulpif = require('gulp-if'),
+	uglify = require('gulp-uglify'),
+	minifyCss = require('gulp-minify-css'),
 	browserSync = require('browser-sync');
 
 gulp.task('pug', function() {
@@ -37,3 +42,30 @@ gulp.task('reload', ['server'], function() {
 		'app/js/*.js'
 	]).on('change', browserSync.reload);
 });
+
+
+
+// ========== СБОРКА ==========
+gulp.task('useref', function() {
+	gulp.src('app/*.html')
+		.pipe(useref())
+		.pipe(gulpif('*.js', uglify()))
+		.pipe(gulpif('*.css', minifyCss()))
+		.pipe(gulp.dest('dist/'));
+});
+
+gulp.task('php', function() {
+	gulp.src('app/php/*')
+		.pipe(gulp.dest('dist/php'));
+});
+
+gulp.task('js', function() {
+	gulp.src('app/js/main.js')
+		.pipe(gulp.dest('dist/js/'));
+});
+
+gulp.task('clean', function() {
+	del.sync('dist/');
+});
+
+gulp.task('build', ['clean', 'useref', 'js', 'php']);

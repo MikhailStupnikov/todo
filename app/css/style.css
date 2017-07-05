@@ -16,12 +16,18 @@ ul {
 	display: table;
 	clear: both;
 }
+.hide {
+	display: none;
+}
+.show {
+	display: block;
+}
 .todo-list {
 	width: 400px;
 	margin: 100px auto;
 }
 .task-entry input[type='submit'],
-.task-view-current input[type='checkbox'],
+.task-view input[type='checkbox'],
 .task-setting-btn {
 	cursor: pointer;
 }
@@ -63,21 +69,21 @@ ul {
 
 
 
-.task-view-current li {
+.task-view li {
 	padding: 20px;
 	color: #3E3E3E;
 	background: #fff;
 }
-.task-view-current li:nth-child(even) {
+.task-view li:nth-child(even) {
 	background: #EaEaEa;
 }
-.task-view-current input[type='checkbox'] {
+.task-view input[type='checkbox'] {
 	margin-right: 15px;
 	width: 15px;
 	height: 15px;
 	outline: none;
 }
-.task-view-current input[type='checkbox']:checked + span {
+.task-view input[type='checkbox']:checked + span {
 	text-decoration: line-through;
 	color: #BCBCBC;
 }
@@ -89,6 +95,7 @@ ul {
 	background: #4D5F71;
 }
 .task-setting-btn {
+	float: left;
 	margin-right: 10px;
 	color: #fff;
 	background: #4D5F71;

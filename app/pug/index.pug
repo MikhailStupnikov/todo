@@ -5,9 +5,13 @@ html
 		meta(http-equiv='X-UA-Compatible' content='IE=edge')
 		meta(name='viewport' content='width=device-width, initial-scale=1')
 		title ToDo List
+		// build:css css/vendor.min.css
 		// bower:css
 		// endbower
+		// endbuild
+		// build:css css/style.min.css
 		link(rel='stylesheet' href='css/style.css')
+		// endbuild
 	body
 		
 		.todo-list
@@ -17,9 +21,17 @@ html
 				input(type='submit' value='+')
 		
 			form.task-view
-				ul#task-list.task-view-current
+				ul#task-list-current.task-view-current
 
-			.task-setting
-				button#btn-done.task-setting-btn Сделано
-	
+			form.task-view
+				ul#task-list-completed.task-view-completed.hide
+
+			.task-setting.clearfix
+				button#btn-done.task-setting-btn.show Сделано
+				button#btn-del.task-setting-btn.hide Удалить
+				button#btn-completed.task-setting-btn.show Завершенные
+				button#btn-resume.task-setting-btn.hide Возобновить
+
+		// build:js js/main.min.js
 		script(src='js/main.js')
+		// endbuild
